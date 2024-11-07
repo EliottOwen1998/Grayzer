@@ -1,38 +1,321 @@
-.App {
-  text-align: center;
+/* App.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif; /* Changed to Roboto */
+  background-color: #1a1a1a; /* Darker background color */
+  color: #e0e0e0; /* Lighter text color for contrast */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header styles */
+header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+  background-image: url('/public/trip.AVIF'); /* Update to your desired background image */
+  background-size: cover;
+  background-position: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: 6rem; /* Adjusted font size for better scaling */
+  flex-grow: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+nav {
+  margin-left: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+/* Grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 3.5fr 0.5fr; /* Sidebar | Main Content | Advertisements */
+  gap: 20px;
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+}
+
+/* General card styles */
+.card {
+  background-color: #2c2c2c; /* Dark card background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Section header styles */
+h2 {
+  border-bottom: 2px solid #007bff;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Main Content styles */
+.content {
+  padding: 10px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: calc(100vh - 40px); /* Adjust for padding */
+}
+
+.posts {
+  background-color: #2c2c2c; /* Dark background for posts */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Advertisement styles */
+.advertisements {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: calc(100vh - 40px); /* Adjust for padding */
+}
+
+/* Post styles */
+.post {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #444; /* Darker border for better visibility */
+  border-radius: 8px;
+  transition: box-shadow 0.3s;
+}
+
+.post:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Media preview styles */
+.media-preview {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.media-preview img,
+.media-preview video {
+  max-width: 100%;
+  max-height: 400px; /* Adjust as needed */
+  object-fit: contain; /* Ensures the image scales nicely within the dimensions */
+  border-radius: 8px; /* Optional: Adds a rounded border for a polished look */
+}
+
+/* Button styles */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Input and textarea styles */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #555; /* Darker border for inputs */
+  border-radius: 4px;
+  background-color: #333; /* Dark input background */
+  color: #e0e0e0; /* Light text color for inputs */
+}
+
+input[type="file"] {
+  margin: 10px 0;
+}
+
+/* Comment section styles */
+.comment-section {
+  margin-top: 15px;
+  border-top: 1px solid #444; /* Darker border */
+  padding-top: 10px;
+}
+
+.comment-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-section li {
+  padding: 5px 0;
+  border-bottom: 1px solid #444; /* Darker border for comments */
+}
+
+.sidebar {
+  background-color: #2c2c2c; /* Matching sidebar background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  height: auto; /* Allow height to adjust based on content */
+}
+
+/* Meme Component Styles */
+.meme-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.meme-title {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #e0e0e0; /* Light text color */
+}
+
+.meme-image {
+  max-width: 80%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.meme-button {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Error message styles */
+.error-message {
+  color: red;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #ffe6e6;
+  border: 1px solid red;
+  margin-bottom: 20px;
+}
+
+/* Advertisement styles */
+.ad {
+  background-color: #444; /* Darker advertisement background */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #e0e0e0; /* Light text color for advertisements */
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333; /* Scrollbar color */
+  border-radius: 6px; /* Rounded edges for the scrollbar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #007bff; /* Color on hover */
+}
+
+/* Profile.css */
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #1c1c1c; /* Match the dark theme */
+  border-radius: 8px;
+  color: #f5f5f5;
+  margin: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Circular profile picture */
+  overflow: hidden;
+  margin-right: 1rem;
+  border: 2px solid #f5f5f5; /* Light border to match the theme */
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-username {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.profile-location {
+  font-size: 1rem;
+  color: #b5b5b5; /* Slightly muted text */
+  margin-bottom: 0.5rem;
+}
+
+.profile-bio {
+  font-size: 0.95rem;
+  color: #d3d3d3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-container {
+      flex-direction: column;
+      align-items: flex-start;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .profile-picture {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
   }
 }
+
+
